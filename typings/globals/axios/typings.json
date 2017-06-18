@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/mzabriskie/axios/8332392/axios.d.ts",
+    "raw": "github:mzabriskie/axios/axios.d.ts#8332392",
+    "typings": "https://raw.githubusercontent.com/mzabriskie/axios/8332392/axios.d.ts"
+  }
+}

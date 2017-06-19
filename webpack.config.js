@@ -11,7 +11,7 @@ module.exports = {
 	],
 
 	output: {
-		filename: 'bundle.js',
+		filename: 'sessionlayer.js',
 		path: resolve(__dirname, 'dist'),
 		publicPath: '/'
 	},
@@ -41,6 +41,12 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			title: '',
 			template: 'public/index.html'
+		}),
+
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+				warnings: false
+			}
 		})
 	]
 };

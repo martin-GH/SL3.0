@@ -3,8 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>SessionLayer 3.0</title>
+    <script src="https://cdn.optimizely.com/js/3097040103.js"></script>
+    <script type="text/javascript">window['optimizely'] = window['optimizely'] || [];</script>
+    <script id="SessionLayer" data-locale='en_US' data-gtmid='GTM-TD2WTW7'></script>
+    <style type="text/css" media="all">
+        body {
+            font-family: Arial;
+            font-size: 13px;
+        }
+        pre {
+            background: #e8e8e8;
+            padding: 10px;
+            margin: 10px 0 0 0;
+            tab-size: 3;
+            -o-tab-size: 3;
+            -moz-tab-size: 3;
+        }
+        fieldset {
+            border: 2px solid #e8e8e8;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-size: 15px;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+        .replace-demo {
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
-    <h2>SessionLayer 3.0</h2>
+<h1>SessionLayer 3.0</h1>
+
+<fieldset>
+    <legend>Replace the text of elements matching the given selector</legend>
+    <div>Try to replace <span class="region replace-demo">this text</span> executing the following code in the browser console.</div>
+    <pre>window.sessionLayer.contentReplacer.replace('.region', 'location.city');</pre>
+</fieldset>
+
+<fieldset>
+    <legend>Init ContentReplacer and use its data to replace a text and a link tag's attribute.</legend>
+    <div>Try to replace <a class="PHONENUMBER telBtn replace-demo">030 50 60 70</a> executing the following code in the browser console.</div>
+    <pre>
+window.sessionLayer.contentReplacer.init().then(function (data) {
+	var phone = window.sessionLayer.contentReplacer.getFromObject('site.phoneNumber', data);
+	if (phone) {
+		$('.PHONENUMBER').text(phone);
+		$('.telBtn').attr('href', 'tel:' + phone.replace(/[^\d]/g,''));
+	}
+});</pre>
+</fieldset>
+
+<fieldset>
+    <legend>Lead Event</legend>
+    <div>Step 1 - Register event listener (jQuery v1.4.2 style used in unbounce pages)</div>
+    <pre>$(document).delegate('#SessionLayer', 'validLeadSent', function() {
+	console.log('event triggered');
+});</pre>
+
+    <div style="margin-top:20px;">Step 2 - Trigger test event</div>
+    <pre>$('#SessionLayer').trigger('validLeadSent');</pre>
+</fieldset>
+
+<script class="FormClientInjector" data-offer-type="local-test-offer-type"></script>
+<script class="FormClientInjector" data-offer-type="OT2"></script>
 </body>
 </html>

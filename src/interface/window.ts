@@ -1,9 +1,13 @@
 import MarketingService from '../services/MarketingService';
-import SessionLayer from '../SessionLayer';
 
 export interface IWindow extends Window {
 	sessionLayer: {
-		core: SessionLayer,
+		core: {
+			country: string,
+			gtmId: string,
+			language: string,
+			locale: string,
+		},
 		marketingService: MarketingService,
 	}
 }

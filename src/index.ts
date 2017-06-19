@@ -1,3 +1,3 @@
-import SessionLayer from './SessionLayer';
+import SessionLayer from './core/SessionLayer';
 
-new SessionLayer();
+(new SessionLayer()).init();
